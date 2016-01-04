@@ -5,10 +5,12 @@ Part2 is to optimize pizza.html to get 60 fps
 
 ## Files structure
 Part1:
+
 1. all the file except `views folder` is for part1
 2. dist foler is the production files using grunt
 
 Part2:
+
 1. views foler has all the files for part2
 2. /views/src has all the source file for part2
 3. /views/src has all the production file for part3
@@ -26,10 +28,11 @@ npm install grunt-contrib-uglify
 2. build 
 ` grunt build`
 
-3. for part2, cd go views and do the same thing above
+3. for part2, cd to `views foler` and do the same thing above
 
 
 ## Result Part1: Optimize PageSpeed Insights score for index.html
+
 1. inline all css file and js file
 2. minify index.html css file and js file using grunt
 3. add async to js files
@@ -37,8 +40,8 @@ npm install grunt-contrib-uglify
 5. ![res1](/result/PSI_res2.png?raw=true "Optional Title")
 
 
+## Result Part 2: Sliding pizza
 
-## Result Part 2: sliding pizza
 1.Change the number of pizzas from 200 to 30, this is to reduced the nums of pizza element  this stills fills the screen
 ```javascript
 document.addEventListener('DOMContentLoaded', function() {
@@ -72,7 +75,8 @@ function changePizzaSizes(size) {
   }
 } 
 ```
-3. ![res1](/result/pizzaRes.png?raw=true "Optional Title")
+
+3.  ![res1](/result/pizzaRes.png?raw=true "Optional Title")
 
 ## Reference
 * [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
