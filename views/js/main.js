@@ -282,7 +282,7 @@ function getNoun(y) {
   }
 }
 
-var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
+var adjectives = ["dark", "color", "whimsical", "shiny", "noisy", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
 var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nouns for pizza titles
 
 // Generates random numbers for getAdj and getNoun functions and returns a new pizza name
@@ -406,13 +406,13 @@ var resizePizzas = function(size) {
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.querySelector("#pizzaSize").innerHTML = "Small";
+        document.getElementsByClassName("#pizzaSize").innerHTML = "Small";
         return;
       case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        document.getElementsByClassName("#pizzaSize").innerHTML = "Medium";
         return;
       case "3":
-        document.querySelector("#pizzaSize").innerHTML = "Large";
+        document.getElementsByClassName("#pizzaSize").innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -424,7 +424,7 @@ var resizePizzas = function(size) {
    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   function determineDx (elem, size) {
     var oldWidth = elem.offsetWidth;
-    var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
+    var windowWidth = document.getElementsByClassName("#randomPizzas").offsetWidth;
     var oldSize = oldWidth / windowWidth;
 
     // TODO: change to 3 sizes? no more xl?
@@ -450,15 +450,22 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   // Move the variable out of the loop to resize the pizza in under 5ms
+  // function changePizzaSizes(size) {
+  //   var dx = determineDx(document.getElementsByClassName(".randomPizzaContainer")[i], size);
+  //   var newwidth = (document.getElementsByClassName(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+  //   var elems = document.getElementsByClassName(".randomPizzaContainer");
+  //   for (var i = 0; i < elems.length; i++) {
+  //     document.getElementsByClassName(".randomPizzaContainer")[i].style.width = newwidth;
+  //   }
+  // }
   function changePizzaSizes(size) {
-    var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-    var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-    var elems = document.querySelectorAll(".randomPizzaContainer");
-    for (var i = 0; i < elems.length; i++) {
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
-    }
+  var dx = determineDx(document.getElementsByClassName(".randomPizzaContainer"), size);
+  var elemLen = document.getElementsByClassName(".randomPizzaContainer").length;
+  for (var i = 0; i < elemLen; i++) {
+    var newwidth = (document.getElementsByClassName(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+    document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
   }
-
+}
   changePizzaSizes(size);
 
   // User Timing API is awesome
