@@ -7,13 +7,13 @@ Part2 is to optimize pizza.html to get 60 fps
 Part1:
 
 1. all the file except `views folder` is for part1
-2. dist foler is the production files using grunt
+2. `dist foler` is the production files using grunt
 
 Part2:
 
-1. views foler has all the files for part2
-2. /views/src has all the source file for part2
-3. /views/src has all the production file for part3
+1. `views foler` has all the files for part2
+2. `/views/src` has all the source file for part2
+3. `/views/dist` has all the production file for part3
 
 For gruntfile.js and package.json file refer to `http://gruntjs.com/getting-started`
 
