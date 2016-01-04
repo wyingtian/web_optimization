@@ -64,16 +64,21 @@ document.addEventListener('DOMContentLoaded', function() {
 2.In the changePizzaSize function, change query selector to getElementByClassName,this make resize under 5ms
 also move the length out of the for loop also reduce the time cost.
 ```javascript
-//Iterates through pizza elements on the page and changes their widths
-// Move the variable out of the loop to resize the pizza in under 5ms
+// Iterates through pizza elements on the page and changes their widths
+// Create a container out of the loop,uesing the first selector ([0])
+// from the randomPizzaContainer variable,
+// Thanks to udacity reviewer Jose for the idea
+å
 function changePizzaSizes(size) {
-  var dx = determineDx(document.getElementByClassName(".randomPizzaContainer")[i], size);
-  var newwidth = (document.getElementByClassName(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-  var elems = document.getElementByClassName(".randomPizzaContainer");
-  for (var i = 0; i < elems.length; i++) {
-    document.getElementByClassName(".randomPizzaContainer")[i].style.width = newwidth;
+  var container = document.getElementsByClassName('randomPizzaContainer');
+  var dx = determineDx(container[0], size);
+  var elemLen = container[0].length;
+  var newwidth = (container[0].offsetWidth + dx) + 'px';
+  for (var i = 0; i < elemLen; i++) {
+    container[i].style.width = newwidth;
   }
-} 
+}
+  changePizzaSizes(size);
 ```
 
 3.  ![res1](/result/pizzaRes.png?raw=true "Optional Title")
