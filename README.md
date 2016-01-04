@@ -6,34 +6,36 @@
 
 ####Part 2: sliding pizza
 1.Change the number of pizzas from 200 to 30, this is to reduced the nums of pizza element  this stills fills the screen
-
-	document.addEventListener('DOMContentLoaded', function() {
-	  var cols = 8;
-	  var s = 256;
-	  for (var i = 0; i < 30; i++) {
-	    var elem = document.createElement('img');
-	    elem.className = 'mover';
-	    elem.src = "images/pizza.png";
-	    elem.style.height = "100px";
-	    elem.style.width = "73.333px";
-	    elem.basicLeft = (i % cols) * s;
-	    elem.style.top = (Math.floor(i / cols) * s) + 'px';
-	    document.querySelector("#movingPizzas1").appendChild(elem);
-	  }
-	  updatePositions();
-	});
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+  var cols = 8;
+  var s = 256;
+  for (var i = 0; i < 30; i++) {
+    var elem = document.createElement('img');
+    elem.className = 'mover';
+    elem.src = "images/pizza.png";
+    elem.style.height = "100px";
+    elem.style.width = "73.333px";
+    elem.basicLeft = (i % cols) * s;
+    elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    document.querySelector("#movingPizzas1").appendChild(elem);
+  }
+  updatePositions();
+});
+```
 2.In the changePizzaSize function 
-
-	//Iterates through pizza elements on the page and changes their widths
-	// Move the variable out of the loop to resize the pizza in under 5ms
-	function changePizzaSizes(size) {
-	  var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-	  var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-	  var elems = document.querySelectorAll(".randomPizzaContainer");
-	  for (var i = 0; i < elems.length; i++) {
-	    document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
-	  }
-	} 
+```javascript
+//Iterates through pizza elements on the page and changes their widths
+// Move the variable out of the loop to resize the pizza in under 5ms
+function changePizzaSizes(size) {
+  var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+  var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+  var elems = document.querySelectorAll(".randomPizzaContainer");
+  for (var i = 0; i < elems.length; i++) {
+    document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+  }
+} 
+```
 ## Website Performance Optimization portfolio project
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
