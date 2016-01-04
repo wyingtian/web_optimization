@@ -1,15 +1,45 @@
-#Usage:
-####Part 1: Optimize PageSpeed Insights score for index.html
-1. minify index.html style.css print.css 
-2. add async to js files
+# Website Optimization
+This is the 4th project of Front-end nano degree. 
+Part1 is to optimize the index.html to get a PageSpeed Inights score of over 90 for both mobile and desktop
+Part2 is to optimize pizza.html to get 60 fps
+
+## Files structure
+Part1:
+1. all the file except `views folder` is for part1
+2. dist foler is the production files using grunt
+
+Part2:
+1. views foler has all the files for part2
+2. /views/src has all the source file for part2
+3. /views/src has all the production file for part3
+
+For gruntfile.js and package.json file refer to `http://gruntjs.com/getting-started`
+
+## Usage:
+1.install :
+```
+npm install grunt
+npm install grunt-contrib-concat
+npm install grunt-contrib-uglify
+```
+
+2. build 
+` grunt build`
+
+3. for part2, cd go views and do the same thing above
 
 
-####Part 2: sliding pizza
+## Result Part1: Optimize PageSpeed Insights score for index.html
+1. inline all css file and js file
+2. minify index.html css file and js file using grunt
+3. add async to js files
+4. ![res1](/result/PSI_res1.png?raw=true "Optional Title")
+5. ![res1](/result/PSI_res2.png?raw=true "Optional Title")
+
+
+
+## Result Part 2: sliding pizza
 1.Change the number of pizzas from 200 to 30, this is to reduced the nums of pizza element  this stills fills the screen
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
 ```javascript
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
@@ -27,77 +57,24 @@ document.addEventListener('DOMContentLoaded', function() {
   updatePositions();
 });
 ```
-<<<<<<< HEAD
-2.In the changePizzaSize function 
+
+2.In the changePizzaSize function, change query selector to getElementByClassName,this make resize under 5ms
+also move the length out of the for loop also reduce the time cost.
 ```javascript
 //Iterates through pizza elements on the page and changes their widths
 // Move the variable out of the loop to resize the pizza in under 5ms
 function changePizzaSizes(size) {
-  var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-  var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-  var elems = document.querySelectorAll(".randomPizzaContainer");
+  var dx = determineDx(document.getElementByClassName(".randomPizzaContainer")[i], size);
+  var newwidth = (document.getElementByClassName(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+  var elems = document.getElementByClassName(".randomPizzaContainer");
   for (var i = 0; i < elems.length; i++) {
-    document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+    document.getElementByClassName(".randomPizzaContainer")[i].style.width = newwidth;
   }
 } 
 ```
-=======
+3. ![res1](/result/pizzaRes.png?raw=true "Optional Title")
 
-2.In the changePizzaSize function 
-
-```javascript
-//Iterates through pizza elements on the page and changes their widths
-// Move the variable out of the loop to resize the pizza in under 5ms
-  function changePizzaSizes(size) {
-    var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-    var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-    var elems = document.querySelectorAll(".randomPizzaContainer");
-    for (var i = 0; i < elems.length; i++) {
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
-    }
-  } 
-```
-
->>>>>>> origin/master
-## Website Performance Optimization portfolio project
-
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
-
-To get started, check out the repository, inspect the code,
-
-### Getting started
-
-####Part 1: Optimize PageSpeed Insights score for index.html
-
-Some useful tips to help you get started:
-
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
-
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
-
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to make your local server accessible remotely.
-
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ngrok http 8080
-  ```
-
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
-
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
-
-####Part 2: Optimize Frames per Second in pizza.html
-
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
-
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
-
-### Optimization Tips and Tricks
+## Reference
 * [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
 * [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
 * [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
@@ -109,20 +86,6 @@ You might find the FPS Counter/HUD Display useful in Chrome developer tools desc
 * <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization.html">Optimize images</a>
 * <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching.html">HTTP caching</a>
 
-### Customization with Bootstrap
-The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstrap</a> framework. All custom styles are in `dist/css/portfolio.css` in the portfolio repo.
-
-* <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
-* <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
-
-### Sample Portfolios
-
-Feeling uninspired by the portfolio? Here's a list of cool portfolios I found after a few minutes of Googling.
-
-* <a href="http://www.reddit.com/r/webdev/comments/280qkr/would_anybody_like_to_post_their_portfolio_site/">A great discussion about portfolios on reddit</a>
-* <a href="http://ianlunn.co.uk/">http://ianlunn.co.uk/</a>
-* <a href="http://www.adhamdannaway.com/portfolio">http://www.adhamdannaway.com/portfolio</a>
-* <a href="http://www.timboelaars.nl/">http://www.timboelaars.nl/</a>
 * <a href="http://futoryan.prosite.com/">http://futoryan.prosite.com/</a>
 * <a href="http://playonpixels.prosite.com/21591/projects">http://playonpixels.prosite.com/21591/projects</a>
 * <a href="http://colintrenter.prosite.com/">http://colintrenter.prosite.com/</a>
