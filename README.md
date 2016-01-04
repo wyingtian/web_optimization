@@ -1,3 +1,39 @@
+#Usage:
+####Part 1: Optimize PageSpeed Insights score for index.html
+1. minify index.html style.css print.css 
+2. add async to js files
+
+
+####Part 2: sliding pizza
+1.Change the number of pizzas from 200 to 30, this is to reduced the nums of pizza element  this stills fills the screen
+
+	document.addEventListener('DOMContentLoaded', function() {
+	  var cols = 8;
+	  var s = 256;
+	  for (var i = 0; i < 30; i++) {
+	    var elem = document.createElement('img');
+	    elem.className = 'mover';
+	    elem.src = "images/pizza.png";
+	    elem.style.height = "100px";
+	    elem.style.width = "73.333px";
+	    elem.basicLeft = (i % cols) * s;
+	    elem.style.top = (Math.floor(i / cols) * s) + 'px';
+	    document.querySelector("#movingPizzas1").appendChild(elem);
+	  }
+	  updatePositions();
+	});
+2.In the changePizzaSize function 
+
+	//Iterates through pizza elements on the page and changes their widths
+	// Move the variable out of the loop to resize the pizza in under 5ms
+	function changePizzaSizes(size) {
+	  var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+	  var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+	  var elems = document.querySelectorAll(".randomPizzaContainer");
+	  for (var i = 0; i < elems.length; i++) {
+	    document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+	  }
+	} 
 ## Website Performance Optimization portfolio project
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
@@ -65,9 +101,3 @@ Feeling uninspired by the portfolio? Here's a list of cool portfolios I found af
 * <a href="http://futoryan.prosite.com/">http://futoryan.prosite.com/</a>
 * <a href="http://playonpixels.prosite.com/21591/projects">http://playonpixels.prosite.com/21591/projects</a>
 * <a href="http://colintrenter.prosite.com/">http://colintrenter.prosite.com/</a>
-* <a href="http://calebmorris.prosite.com/">http://calebmorris.prosite.com/</a>
-* <a href="http://www.cullywright.com/">http://www.cullywright.com/</a>
-* <a href="http://yourjustlucky.com/">http://yourjustlucky.com/</a>
-* <a href="http://nicoledominguez.com/portfolio/">http://nicoledominguez.com/portfolio/</a>
-* <a href="http://www.roxannecook.com/">http://www.roxannecook.com/</a>
-* <a href="http://www.84colors.com/portfolio.html">http://www.84colors.com/portfolio.html</a>
