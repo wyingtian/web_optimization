@@ -38,6 +38,7 @@ npm install grunt-contrib-uglify
 3. add async to js files
 4. ![res1](/result/PSI_res1.png?raw=true "Optional Title")
 5. ![res1](/result/PSI_res2.png?raw=true "Optional Title")
+6. compress image size
 
 
 ## Result Part 2: Sliding pizza
@@ -68,7 +69,7 @@ also move the length out of the for loop also reduce the time cost.
 // Create a container out of the loop,uesing the first selector ([0])
 // from the randomPizzaContainer variable,
 // Thanks to udacity reviewer Jose for the idea
-å
+
 function changePizzaSizes(size) {
   var container = document.getElementsByClassName('randomPizzaContainer');
   var dx = determineDx(container[0], size);
