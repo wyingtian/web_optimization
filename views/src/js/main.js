@@ -508,12 +508,12 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
    //make the scrollTop calculation out of the loop
    //move variable declaration out of the loop
-  var items = document.querySelectorAll('mover');
-  var scrTop = (document.documentElement.scrollTop / 1250);
-  var phase;
+  var items = document.querySelectorAll('.mover');
+  var scrTop = (document.body.scrollTop / 1250);
+
   var itemLen = items.length;
   for (var i = 0 ; i < itemLen; i++) {
-    phase = Math.sin( scrTop + (i % 5));;
+    var phase = Math.sin( scrTop + (i % 5));;
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 

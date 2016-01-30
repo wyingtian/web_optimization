@@ -12,8 +12,8 @@ module.exports = function(grunt) {
       options: { separator: ';' },
       
       js: {
-        src: ['src/**/*.js'],
-        dest: 'dist/<%= pkg.name %>.js'
+        src: ['js/perfmatters.js'],
+        dest: 'dist/js/perfmatters.js'
       } 
     },
 
@@ -24,14 +24,14 @@ module.exports = function(grunt) {
       },
       js: {
         files: {
-          'dist/<%= pkg.name %>.min.js': ['dist/<%= pkg.name %>.js']
+          'dist/js/perfmatters.min.js': ['dist/js/perfmatters.js']
         }
       }
     },
 
     cssmin: {
       target: {
-        files: { 'dist/style.min.css': ['css/style.css'] }
+        files: { 'dist/css/style.min.css': ['css/style.css'] }
       }
     },
   });

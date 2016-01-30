@@ -3,18 +3,6 @@ This is the 4th project of Front-end nano degree.
 Part1 is to optimize the index.html to get a PageSpeed Inights score of over 90 for both mobile and desktop
 Part2 is to optimize pizza.html to get 60 fps
 
-## Files structure
-Part1:
-
-1. all the file except `views folder` is for part1
-2. `dist foler` is the production files using grunt
-
-Part2:
-
-1. `views foler` has all the files for part2
-2. `/views/src` has all the source file for part2
-3. `/views/dist` has all the production file for part3
-
 For gruntfile.js and package.json file refer to `http://gruntjs.com/getting-started`
 
 ## Usage:
@@ -23,12 +11,11 @@ For gruntfile.js and package.json file refer to `http://gruntjs.com/getting-star
 npm install grunt
 npm install grunt-contrib-concat
 npm install grunt-contrib-uglify
+npm install grunt-contrib-cssmin
 ```
 
 2. build 
 ` grunt build`
-
-3. for part2, cd to `views foler` and do the same thing above
 
 
 ## Result Part1: Optimize PageSpeed Insights score for index.html
